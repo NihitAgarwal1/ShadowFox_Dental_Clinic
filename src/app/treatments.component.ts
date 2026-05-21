@@ -5,40 +5,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   selector: 'app-treatments',
   imports: [CommonModule],
-  template: `
-    <section class="page-section page-treatments">
-      <div class="page-intro">
-        <span>Our treatments</span>
-        <h1>Dental services designed for comfort and confidence.</h1>
-        <p>From routine care to restorative treatments, every service is delivered with safety, precision, and warmth.</p>
-      </div>
-      <div class="treatment-grid">
-        <article>
-          <h2>Teeth Cleaning</h2>
-          <p>Professional scaling and polishing for brighter, healthier gums.</p>
-        </article>
-        <article>
-          <h2>Tooth Filling</h2>
-          <p>Tooth-coloured fillings that restore strength while looking natural.</p>
-        </article>
-        <article>
-          <h2>Extraction</h2>
-          <p>Safe, gentle removal with careful follow-up support.</p>
-        </article>
-        <article>
-          <h2>Bleaching</h2>
-          <p>Clinic-grade whitening for a noticeably brighter smile.</p>
-        </article>
-        <article>
-          <h2>Orthodontics</h2>
-          <p>Braces and aligners that help create healthy, aligned smiles.</p>
-        </article>
-        <article>
-          <h2>Dentures</h2>
-          <p>Comfortable, natural-looking dentures to restore chewing and confidence.</p>
-        </article>
-      </div>
-    </section>
-  `
+  templateUrl: './treatments.component.html',
+  styleUrls: ['./treatments.component.css']
 })
 export class TreatmentsComponent {}
