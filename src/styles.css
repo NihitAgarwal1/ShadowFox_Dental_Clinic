@@ -21,14 +21,23 @@
 
 html {
   scroll-behavior: smooth;
+  min-height: 100%;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 35%),
     #eef3fb;
   color: var(--text-strong);
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 button,
@@ -117,8 +126,12 @@ a {
 }
 
 .app-shell {
-  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem 3rem;
   max-width: 1180px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -485,12 +498,73 @@ a {
 }
 
 .site-footer {
-  text-align: center;
-  padding: 1.5rem 2rem;
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.08), rgba(255, 255, 255, 0.96));
+  border-top: 1px solid rgba(209, 215, 230, 0.9);
+  padding: 2.5rem 2rem;
   color: var(--text-muted);
 }
 
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  max-width: 1180px;
+  margin: 0 auto 1.5rem;
+}
+
+.footer-grid h3 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-grid li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-grid a {
+  color: var(--text-strong);
+  opacity: 0.82;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.footer-grid a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.footer-copy {
+  margin: 0;
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
 @media (max-width: 960px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-grid h3 {
+    text-align: center;
+  }
+
+  .footer-grid li {
+    display: block;
+    margin: 0.35rem 0;
+  }
+
+  .footer-grid ul {
+    display: block;
+  }
+
   .hero,
   .about-grid,
   .team-cards,
@@ -504,31 +578,96 @@ a {
 
   .site-header {
     flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .site-nav {
     width: 100%;
     justify-content: center;
+    gap: 0.85rem;
+  }
+
+  .hero-actions,
+  .hero-highlights,
+  .testimonial-grid article footer {
+    width: 100%;
   }
 }
 
 @media (max-width: 680px) {
   .site-header {
-    padding: 1rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .site-nav {
+    gap: 0.65rem;
+  }
+
+  .brand-link {
+    font-size: 1rem;
+  }
+
+  .app-shell {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .hero,
+  .about-grid,
+  .page-contact .contact-layout,
+  .feature-grid,
+  .service-grid,
+  .treatment-grid,
+  .testimonial-grid,
+  .team-cards {
+    grid-template-columns: 1fr;
   }
 
   .hero-copy h1,
   .page-intro h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .hero-actions,
+  .hero-highlights,
+  .page-contact .contact-layout {
+    gap: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .hero-highlights {
+    display: grid;
     grid-template-columns: 1fr;
   }
 
   .small-info,
   .page-section {
-    padding: 1.75rem;
+    padding: 1.25rem;
+  }
+
+  .contact-form label {
+    gap: 0.4rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .contact-form button {
+    min-width: 100%;
+  }
+
+  .button.primary,
+  .button.secondary {
+    width: 100%;
+  }
+
+  .site-footer {
+    padding: 1.75rem 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.92rem;
   }
 }
