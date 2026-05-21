@@ -1,0 +1,43 @@
+.page-faq .page-intro {
+  display: grid;
+  gap: 1rem;
+  max-width: 720px;
+}
+
+.page-faq .page-intro h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+}
+
+.page-faq .page-intro p {
+  color: #475569;
+  max-width: 44rem;
+}
+
+.faq-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.faq-list details {
+  background: #f8fafc;
+  border: 1px solid #d1d5db;
+  border-radius: 24px;
+  padding: 1.25rem 1.5rem;
+}
+
+.faq-list summary {
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list p {
+  margin: 1rem 0 0;
+  color: #475569;
+}

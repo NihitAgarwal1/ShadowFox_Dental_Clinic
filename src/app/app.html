@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="brand">
+    <a routerLink="/" class="brand-link">Sakthi Dental</a>
+  </div>
+  <nav class="site-nav">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a routerLink="/treatments" routerLinkActive="active">Treatments</a>
+    <a routerLink="/faq" routerLinkActive="active">FAQs</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+  </nav>
+  <a routerLink="/contact" class="button primary nav-button">Fix Appointment</a>
+</header>
+<main class="app-shell">
+  <router-outlet></router-outlet>
+</main>
+<footer class="site-footer">
+  <p>© 2026 Sakthi Dental. Trusted family dental care for women, children, and families.</p>
+</footer>

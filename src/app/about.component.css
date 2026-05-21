@@ -1,0 +1,66 @@
+.page-about .page-intro {
+  display: grid;
+  gap: 1rem;
+  max-width: 720px;
+}
+
+.page-about .page-intro h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+}
+
+.page-about .page-intro p {
+  color: #475569;
+  max-width: 44rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.about-grid h2 {
+  margin-top: 0;
+}
+
+.about-grid ul {
+  padding-left: 1.2rem;
+  margin: 0;
+  color: #475569;
+}
+
+.about-grid li {
+  margin-bottom: 0.75rem;
+}
+
+.team-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.team-cards article {
+  padding: 1.75rem;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 28px;
+}
+
+.team-cards h3 {
+  margin-bottom: 1rem;
+}
+
+.team-cards p {
+  color: #475569;
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .about-grid,
+  .team-cards {
+    grid-template-columns: 1fr;
+  }
+}
