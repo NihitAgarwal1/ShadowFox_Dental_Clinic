@@ -1,0 +1,111 @@
+.privacy-policy {
+  display: grid;
+  gap: 2rem;
+}
+
+.privacy-hero {
+  display: grid;
+  gap: 1rem;
+  max-width: 820px;
+}
+
+.privacy-hero span {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.privacy-hero h1 {
+  margin: 0;
+  font-size: clamp(2.3rem, 4vw, 3.5rem);
+  line-height: 1.05;
+}
+
+.privacy-hero p {
+  margin: 0;
+  color: #475569;
+  font-size: 1.05rem;
+}
+
+.policy-content {
+  display: grid;
+  gap: 1.4rem;
+  max-width: 900px;
+}
+
+.policy-content section {
+  padding: 1.5rem;
+  border: 1px solid #dbe3f0;
+  border-radius: 22px;
+  background: #f8fbff;
+}
+
+.policy-content h2,
+.policy-content h3 {
+  color: #111827;
+  line-height: 1.25;
+}
+
+.policy-content h2 {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+}
+
+.policy-content h3 {
+  margin: 1.25rem 0 0.75rem;
+  font-size: 1.05rem;
+}
+
+.policy-content p {
+  margin: 0 0 1rem;
+  color: #334155;
+}
+
+.policy-content p:last-child {
+  margin-bottom: 0;
+}
+
+.policy-content ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0 0 1rem;
+  padding-left: 1.3rem;
+  color: #334155;
+}
+
+.policy-contact {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid #d1d7e6;
+}
+
+.policy-contact p {
+  margin: 0;
+}
+
+.policy-contact a {
+  color: #1d4ed8;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.policy-cta {
+  width: fit-content;
+}
+
+@media (max-width: 680px) {
+  .privacy-policy {
+    gap: 1.25rem;
+  }
+
+  .policy-content section {
+    padding: 1rem;
+    border-radius: 18px;
+  }
+
+  .policy-cta {
+    width: 100%;
+  }
+}
