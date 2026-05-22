@@ -4,6 +4,7 @@ import { AboutComponent } from './about.component';
 import { TreatmentsComponent } from './treatments.component';
 import { FaqComponent } from './faq.component';
 import { ContactComponent } from './contact.component';
+import { PrivacyPolicyComponent } from './privacy-policy.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'treatments', component: TreatmentsComponent },
   { path: 'faq', component: FaqComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '' }
 ];
