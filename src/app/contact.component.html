@@ -1,54 +1,150 @@
 <section class="page-section page-contact">
   <div class="page-intro">
-    <span>Contact</span>
-    <h1>Request an appointment or ask a question.</h1>
-    <p>Fill out the form below and our team will reach out to confirm your visit.</p>
+    <span>Contact Us</span>
+    <h1>Reach Sakthi Dental Clinic with ease.</h1>
+    <p>
+      Ask a question, book an appointment, or learn how to reach the clinic. This page is designed
+      to be clean, professional, user-friendly, and responsive on every device.
+    </p>
   </div>
+
   <div class="contact-layout">
-    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact-form">
+    <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact-form" novalidate>
+      <div class="form-heading">
+        <span>Contact Form</span>
+        <h2>We would love to hear from you</h2>
+      </div>
+
       <label>
-        Full name
-        <input name="name" [(ngModel)]="contact.name" required />
+        Name
+        <input
+          name="name"
+          type="text"
+          [(ngModel)]="contact.name"
+          #name="ngModel"
+          required
+          pattern="^[A-Za-z\s.'-]+$"
+          autocomplete="name"
+          placeholder="Enter your name"
+        />
+        <span class="field-error" *ngIf="name.invalid && (name.dirty || name.touched)">
+          <span *ngIf="name.errors?.['required']">Name is required.</span>
+          <span *ngIf="name.errors?.['pattern']">Name can only contain characters, spaces, apostrophes, periods, and hyphens.</span>
+        </span>
       </label>
+
       <label>
-        Email address
-        <input name="email" type="email" [(ngModel)]="contact.email" required />
+        Email
+        <input
+          name="email"
+          type="email"
+          [(ngModel)]="contact.email"
+          #email="ngModel"
+          required
+          email
+          autocomplete="email"
+          placeholder="Enter your email"
+        />
+        <span class="field-error" *ngIf="email.invalid && (email.dirty || email.touched)">
+          <span *ngIf="email.errors?.['required']">Email is required.</span>
+          <span *ngIf="email.errors?.['email']">Enter a valid email address.</span>
+        </span>
       </label>
+
       <label>
-        Phone number
-        <input name="phone" type="tel" [(ngModel)]="contact.phone" required />
+        Phone Number
+        <input
+          name="phone"
+          type="text"
+          [(ngModel)]="contact.phone"
+          #phone="ngModel"
+          required
+          inputmode="tel"
+          autocomplete="tel"
+          placeholder="Enter your phone number"
+        />
+        <span class="field-error" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+          <span *ngIf="phone.errors?.['required']">Phone number is required.</span>
+        </span>
       </label>
+
       <label>
-        How can we help?
-        <textarea name="message" rows="5" [(ngModel)]="contact.message" required></textarea>
+        Your Message
+        <textarea
+          name="message"
+          rows="5"
+          [(ngModel)]="contact.message"
+          #message="ngModel"
+          placeholder="Write your message"
+        ></textarea>
       </label>
-      <button type="submit" class="button primary" [disabled]="contactForm.invalid">Send request</button>
+
+      <button type="submit" class="button primary contact-submit" [disabled]="contactForm.invalid">Submit</button>
     </form>
-    <aside class="contact-info">
-      <div>
-        <strong>Clinic location</strong>
-        <p>123 Family Care Road, Happy City</p>
+
+    <aside class="contact-info" aria-labelledby="reach-us-title">
+      <div class="form-heading">
+        <span>Clinic Contact Information</span>
+        <h2 id="reach-us-title">Reach us</h2>
       </div>
-      <div>
-        <strong>Working hours</strong>
-        <p>Mon - Sat: 9:00 AM to 6:00 PM</p>
-      </div>
-      <div>
-        <strong>Email</strong>
-        <p><a href="mailto:hello@sakthidental.in">hello@sakthidental.in</a></p>
-      </div>
-      <div>
-        <strong>Phone</strong>
-        <p><a href="tel:+919876543210">+91 98765 43210</a></p>
-      </div>
-      <div>
-        <strong>Emergency support</strong>
-        <p>Call or leave your message and we'll respond promptly.</p>
-      </div>
+
+      <ul class="reach-list">
+        <li>
+          <span class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 21s7-5.1 7-12a7 7 0 1 0-14 0c0 6.9 7 12 7 12Z" />
+              <circle cx="12" cy="9" r="2.5" />
+            </svg>
+          </span>
+          <div>
+            <strong>Address:</strong>
+            <p>B2/8, SBM Layout, Anthivadi, Hosur, Tamil Nadu 635109, India</p>
+          </div>
+        </li>
+
+        <li>
+          <span class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 6.5h16v11H4z" />
+              <path d="m4 7 8 6 8-6" />
+            </svg>
+          </span>
+          <div>
+            <strong>Email:</strong>
+            <p><a href="mailto:info@sakthidentalclinic.in">info@sakthidentalclinic.in</a></p>
+          </div>
+        </li>
+
+        <li>
+          <span class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M6.6 3.8 9 3l2 4.5-1.8 1.2a12.1 12.1 0 0 0 6.1 6.1L16.5 13l4.5 2-0.8 2.4c-.3.9-1.2 1.5-2.2 1.4C10.8 18.3 5.7 13.2 5.2 6c-.1-1 .5-1.9 1.4-2.2Z" />
+            </svg>
+          </span>
+          <div>
+            <strong>Phone:</strong>
+            <p><a href="tel:+919862890897">+91 9862890897</a> / <a href="tel:+919363298118">+91 9363298118</a></p>
+          </div>
+        </li>
+
+        <li>
+          <span class="contact-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="8" />
+              <path d="M12 7v5l3 2" />
+            </svg>
+          </span>
+          <div>
+            <strong>Timings:</strong>
+            <p><b>Sunday to Saturday: 9am to 7pm</b></p>
+          </div>
+        </li>
+      </ul>
     </aside>
   </div>
+
   <div class="form-success" *ngIf="submitted">
     <h2>Appointment request sent</h2>
-    <p>Thank you, {{ contact.name }}. We will contact you soon to confirm your appointment.</p>
+    <p>Thank you, {{ submittedName }}. We will contact you soon to confirm your appointment.</p>
   </div>
 </section>
