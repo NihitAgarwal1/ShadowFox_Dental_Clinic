@@ -1,44 +1,273 @@
+.page-treatments {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  --treatment-blue: #2563eb;
+  --treatment-teal: #0891b2;
+  --treatment-rose: #ec4899;
+  --treatment-ink: #102033;
+  --treatment-muted: #475569;
+  background: transparent;
+  border-color: transparent;
+}
+
+.page-treatments::before {
+  content: "";
+  position: fixed;
+  inset: -18px;
+  background: url("/treatment-background.png") center / cover no-repeat;
+  pointer-events: none;
+  transform: scale(1.03);
+  z-index: 0;
+}
+
+.page-treatments::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(238, 243, 251, 0.48), rgba(248, 251, 255, 0.7)),
+    linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(8, 145, 178, 0.05) 48%, rgba(236, 72, 153, 0.04));
+}
+
+.page-treatments > * {
+  position: relative;
+  z-index: 1;
+}
+
 .page-treatments .page-intro {
   display: grid;
   gap: 1rem;
-  max-width: 720px;
+  max-width: 790px;
+  padding-bottom: 0.65rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid rgba(191, 219, 254, 0.82);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.09);
+  backdrop-filter: blur(8px);
 }
 
 .page-treatments .page-intro h1 {
   margin: 0;
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  color: var(--treatment-ink);
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  line-height: 1.08;
 }
 
 .page-treatments .page-intro p {
-  color: #475569;
-  max-width: 44rem;
+  color: var(--treatment-muted);
+  max-width: 48rem;
+  margin: 0;
+}
+
+.page-treatments .page-intro span {
+  width: fit-content;
+  padding: 0.42rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
 }
 
 .treatment-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.25rem;
 }
 
-.treatment-grid article {
-  padding: 1.75rem;
-  background: #ffffff;
-  border: 1px solid #d1d5db;
-  border-radius: 28px;
+.treatment-card {
+  display: grid;
+  min-height: 220px;
+  padding: 1.35rem;
+  border: 1px solid rgba(209, 215, 230, 0.95);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(248, 251, 255, 0.58)),
+    rgba(255, 255, 255, 0.58);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.07);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
 }
 
-.treatment-grid h2 {
-  margin-bottom: 1rem;
+.treatment-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(37, 99, 235, 0.1), rgba(8, 145, 178, 0.08)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(219, 234, 254, 0.42));
+  opacity: 0;
+  transition: opacity 0.22s ease;
 }
 
-.treatment-grid p {
-  color: #475569;
+.treatment-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.35rem;
+  right: 1.35rem;
+  height: 4px;
+  border-radius: 0 0 999px 999px;
+  background: linear-gradient(90deg, var(--treatment-blue), var(--treatment-teal), var(--treatment-rose));
+  opacity: 0.72;
+}
+
+.treatment-card:hover,
+.treatment-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(37, 99, 235, 0.38);
+  box-shadow: 0 24px 60px rgba(37, 99, 235, 0.13);
+}
+
+.treatment-card:hover::before,
+.treatment-card:focus-visible::before,
+.treatment-card.is-expanded::before {
+  opacity: 1;
+}
+
+.treatment-card:focus-visible {
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.18),
+    0 24px 60px rgba(37, 99, 235, 0.13);
+}
+
+.treatment-card.is-expanded {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(239, 246, 255, 0.72));
+  border-color: rgba(37, 99, 235, 0.4);
+}
+
+.treatment-name,
+.treatment-details {
+  display: grid;
+  align-content: space-between;
+  min-height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.treatment-name span {
+  display: inline-grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #dbeafe, #ccfbf1);
+  color: #1d4ed8;
+  font-weight: 900;
+  box-shadow: inset 0 0 0 1px rgba(37, 99, 235, 0.1);
+}
+
+.treatment-name h2 {
+  margin: 1.5rem 0 1rem;
+  color: var(--treatment-ink);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.18;
+}
+
+.treatment-name p {
   margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
-@media (max-width: 960px) {
+.treatment-details {
+  gap: 1rem;
+}
+
+.treatment-details span {
+  color: var(--treatment-blue);
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.treatment-details ul {
+  display: grid;
+  gap: 0.65rem;
+  padding-left: 1.1rem;
+  margin: 0;
+  color: #334155;
+}
+
+.treatment-details li {
+  line-height: 1.5;
+}
+
+.treatment-details li::marker {
+  color: var(--treatment-teal);
+}
+
+@keyframes treatment-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(34px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .page-treatments .page-intro,
+  .treatment-card {
+    animation: treatment-reveal 0.68s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+
+  .treatment-card:nth-child(3n + 2) {
+    animation-range: entry 4% cover 34%;
+  }
+
+  .treatment-card:nth-child(3n) {
+    animation-range: entry 8% cover 38%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-treatments .page-intro,
+  .treatment-card {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .treatment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
   .treatment-grid {
     grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-top: 1.5rem;
+  }
+
+  .treatment-card {
+    min-height: 190px;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .treatment-name span {
+    width: 2.65rem;
+    height: 2.65rem;
+    border-radius: 14px;
+  }
+
+  .treatment-name h2 {
+    margin: 1.25rem 0 0.8rem;
   }
 }
