@@ -27,6 +27,10 @@ export class ContactComponent {
   submittedName = '';
   private readonly clinicEmail = 'info@sakthidentalclinic.in';
 
+  formatPhoneNumber() {
+    this.contact.phone = this.contact.phone.replace(/\D/g, '').slice(0, 10);
+  }
+
   onSubmit(form: NgForm) {
     if (form.valid) {
       const submittedContact = { ...this.contact };

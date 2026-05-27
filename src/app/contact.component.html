@@ -57,14 +57,18 @@
           name="phone"
           type="text"
           [(ngModel)]="contact.phone"
+          (input)="formatPhoneNumber()"
           #phone="ngModel"
           required
-          inputmode="tel"
+          pattern="^[0-9]{10}$"
+          maxlength="10"
+          inputmode="numeric"
           autocomplete="tel"
           placeholder="Enter your phone number"
         />
         <span class="field-error" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
           <span *ngIf="phone.errors?.['required']">Phone number is required.</span>
+          <span *ngIf="phone.errors?.['pattern']">Phone number must be exactly 10 digits.</span>
         </span>
       </label>
 
